@@ -1,0 +1,50 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" parallel="tests" thread-count="6" verbose="3">
+
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
+    <parameter name="apiUrl" value="https://jsonplaceholder.typicode.com/" />
+
+
+    <test name="ChromeTest">
+        <parameter name="browser" value="localChrome" />
+        <classes>
+            <class name="pl.przemeknojman.WhenTestingRestApiTest" />
+        </classes>
+    </test>
+
+<!--    <test name="FireFoxTest">-->
+<!--        <parameter name="browser" value="localFirefox" />-->
+<!--        <classes>-->
+<!--            <class name="pl.przemeknojman.WhenTestingUITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="EdgeTest">-->
+<!--        <parameter name="browser" value="localEdge" />-->
+<!--        <classes>-->
+<!--            <class name="pl.przemeknojman.WhenTestingUITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="ChromeTest2">-->
+<!--        <parameter name="browser" value="localChrome" />-->
+<!--        <classes>-->
+<!--            <class name="pl.przemeknojman.WhenTestingUITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="FireFoxTest2">-->
+<!--        <parameter name="browser" value="localFirefox" />-->
+<!--        <classes>-->
+<!--            <class name="pl.przemeknojman.WhenTestingUITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="EdgeTest2">-->
+<!--        <parameter name="browser" value="localEdge" />-->
+<!--        <classes>-->
+<!--            <class name="pl.przemeknojman.WhenTestingUITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
