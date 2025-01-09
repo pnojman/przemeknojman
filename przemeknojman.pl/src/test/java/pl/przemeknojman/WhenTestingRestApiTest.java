@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pl.przemeknojman.apiservices.PostsService;
+import pl.przemeknojman.builders.PostBuilder;
 import pl.przemeknojman.dto.PostDTO;
 import pl.przemeknojman.util.JsonUtils;
 import java.util.List;
@@ -49,10 +50,13 @@ public class WhenTestingRestApiTest {
 
         int expectedNewPostId = 101;
 
-        String addPostJson = JsonUtils.readJsonFromResource("posts/addPost.json");
-        PostDTO postBody = JsonUtils.parseJsonToObject(addPostJson, PostDTO.class);
+        PostBuilder postBuilder = new PostBuilder();
+        PostDTO randomPost = postBuilder
+                .withRandomUserId()
+                .withRandomTitle()
+                .withRandomBody().build();
 
-        int newPostId = postsService.addPost(postBody);
+        int newPostId = postsService.addPost(randomPost);
 
         Assert.assertEquals(expectedNewPostId, newPostId);
 
