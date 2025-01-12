@@ -12,18 +12,15 @@ import pl.przemeknojman.pages.LoginPage;
 import pl.przemeknojman.util.JsonUtils;
 import pl.przemeknojman.util.WebDriverManager;
 
-public class WhenTestingUITest {
+public class WhenTestingUITest extends TestConfig {
 
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
-    String browser;
 
     @BeforeClass
-    @Parameters({"url", "browser"})
-    public void setUp(String url, String browser) {
+    public void setUp() {
         WebDriver driver = WebDriverManager.getInstance(browser).getDriver();
         driver.get(url);
-        this.browser = browser;
         loginPage = new LoginPage(driver);
         dashboardPage = new DashboardPage(driver);
     }

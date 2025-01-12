@@ -2,7 +2,6 @@ package pl.przemeknojman;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pl.przemeknojman.apiservices.PostsService;
 import pl.przemeknojman.builders.PostBuilder;
@@ -12,12 +11,11 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class WhenTestingRestApiTest {
+public class WhenTestingRestApiTest extends TestConfig {
 
     PostsService postsService;
     @BeforeClass
-    @Parameters({"apiUrl"})
-    public void setUp(String apiUrl) {
+    public void setUp() {
         postsService = new PostsService(apiUrl);
     }
 
