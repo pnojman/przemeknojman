@@ -1,6 +1,8 @@
 package pl.przemeknojman.apiservices;
 
 import io.restassured.response.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.przemeknojman.dto.PostDTO;
 import pl.przemeknojman.factory.ApiRequestFactory;
 import pl.przemeknojman.util.restapi.GetRequest;
@@ -11,6 +13,7 @@ import java.util.List;
 public class PostsService {
 
     private final String apiUrl;
+    private static final Logger logger = LoggerFactory.getLogger(PostsService.class);
 
 
     public PostsService(String apiUrl) {
@@ -21,7 +24,9 @@ public class PostsService {
 
         String GETTING_ALL_POSTS = "posts";
 
+        logger.info("Preparing get request for POSTS");
         GetRequest getRequest = (GetRequest) ApiRequestFactory.createRequest("GET", this.apiUrl, GETTING_ALL_POSTS);
+        logger.info("Executing the POSTS request");
         Response result = getRequest.execute();
         return result.body().jsonPath().getList(".", PostDTO.class);
     }
