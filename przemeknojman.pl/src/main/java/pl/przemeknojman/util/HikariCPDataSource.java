@@ -2,20 +2,21 @@ package pl.przemeknojman.util;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import pl.przemeknojman.dto.TestParametersDTO;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 public class HikariCPDataSource {
 
     private static volatile HikariCPDataSource instance;
     private final HikariDataSource dataSource;
 
-    private HikariCPDataSource() {
+    private HikariCPDataSource(TestParametersDTO testParameters){
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://mariadb105.server122739.nazwa.pl:3306/server122739_nation");
-        config.setUsername("server122739_nation");
-        config.setPassword("Sobacz1566");
+        config.setJdbcUrl("jdbc:mysql://" + testParameters.getDbHost() + ":" + testParameters.getDbPort() + "/" +
+                testParameters.getDbName());
+        config.setUsername(testParameters.getDbUserName());
+        config.setPassword(testParameters.getDbPassword());
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         config.setMaximumPoolSize(10);
@@ -27,11 +28,11 @@ public class HikariCPDataSource {
         dataSource = new HikariDataSource(config);
     }
 
-    public static HikariCPDataSource getInstance() {
+    public static HikariCPDataSource getInstance(TestParametersDTO testParameters) {
         if (instance == null) {
             synchronized (HikariCPDataSource.class) {
                 if (instance == null) {
-                    instance = new HikariCPDataSource();
+                    instance = new HikariCPDataSource(testParameters);
                 }
             }
         }

@@ -2,12 +2,13 @@ package pl.przemeknojman.util.restapi;
 
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.response.Response;
+import pl.przemeknojman.dto.TestParametersDTO;
 
 import static io.restassured.RestAssured.given;
 
 public class GetRequest extends ApiRequest<Response> {
-    public GetRequest(String baseUrl, String endpoint) {
-        super(baseUrl, endpoint);
+    public GetRequest(TestParametersDTO testParameters, String endpoint) {
+        super(testParameters, endpoint);
     }
 
     @Override
