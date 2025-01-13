@@ -9,6 +9,8 @@
     <test name="ChromeTest">
         <classes>
             <class name="pl.przemeknojman.WhenTestingDBTest" />
+            <class name="pl.przemeknojman.WhenTestingUITest" />
+            <class name="pl.przemeknojman.WhenTestingRestApiTest" />
         </classes>
     </test>
 
