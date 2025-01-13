@@ -1,5 +1,7 @@
 package pl.przemeknojman.util.restapi;
 
+import pl.przemeknojman.dto.TestParametersDTO;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +14,8 @@ public abstract class ApiRequest<T> {
     protected Map<String, Object> pathParam = new HashMap<>();
     protected String requestBody;
 
-    public ApiRequest(String baseUrl, String endpoint) {
-        this.baseUrl = baseUrl;
+    public ApiRequest(TestParametersDTO testParameters, String endpoint) {
+        this.baseUrl = testParameters.getApiUrl();
         this.endpoint = endpoint;
     }
     public void setHeader(String key, String value) {

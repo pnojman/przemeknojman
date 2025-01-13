@@ -16,7 +16,7 @@ public class WhenTestingRestApiTest extends TestConfig {
     PostsService postsService;
     @BeforeClass
     public void setUp() {
-        postsService = new PostsService(apiUrl);
+        postsService = new PostsService(testParameters);
     }
 
 

@@ -19,8 +19,8 @@ public class WhenTestingUITest extends TestConfig {
 
     @BeforeClass
     public void setUp() {
-        WebDriver driver = WebDriverManager.getInstance(browser).getDriver();
-        driver.get(url);
+        WebDriver driver = WebDriverManager.getInstance(testParameters.getBrowser()).getDriver();
+        driver.get(testParameters.getUrl());
         loginPage = new LoginPage(driver);
         dashboardPage = new DashboardPage(driver);
     }
