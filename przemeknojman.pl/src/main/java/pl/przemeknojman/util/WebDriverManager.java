@@ -45,7 +45,7 @@ public class WebDriverManager {
         return instance;
     }
 
-    public WebDriver getDriver() {
+    public  WebDriver getDriver() {
         return tlDriver.get();
     }
 

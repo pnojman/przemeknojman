@@ -38,7 +38,7 @@ public class WhenTestingUITest extends TestConfig {
 
         loginPage.login(user.getLogin(), user.getPassword());
 
-        Assert.assertEquals(dashboardPage.getTitle(), "OrangeHRM");
+        Assert.assertEquals(dashboardPage.getTitle(), "OrangeHRM1");
     }
 
 }
