@@ -2,18 +2,18 @@
 
 <suite name="Suite" parallel="classes" thread-count="3" verbose="3">
 
+    <listeners>
+        <listener class-name="pl.przemeknojman.listeners.TestListener" />
+    </listeners>
+
     <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
     <parameter name="apiUrl" value="https://jsonplaceholder.typicode.com/" />
     <parameter name="browser" value="localChrome" />
-    <parameter name="dbHost" value="mariadb105.server122739.nazwa.pl" />
-    <parameter name="dbName" value="server122739_nation" />
+    <parameter name="dbHost" value="***" />
+    <parameter name="dbName" value="***" />
     <parameter name="dbPort" value="3306" />
-    <parameter name="dbUserName" value="server122739_nation" />
+    <parameter name="dbUserName" value="***" />
     <parameter name="dbPassword" value="***" />
-
-
-
-
 
 
     <test name="ChromeTest">
