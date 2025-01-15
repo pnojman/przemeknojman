@@ -19,10 +19,8 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         WebDriver driver = WebDriverManager.getInstance("").getDriver();
         if (driver != null) {
-            //TakesScreenshot ts = (TakesScreenshot) driver;
-            //File srcFile = ts.getScreenshotAs(OutputType.FILE);
-            byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
+            byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String testName = result.getName();
